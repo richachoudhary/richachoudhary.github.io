@@ -112,33 +112,6 @@
       font-size: 1.8rem;
     }
     
-    ul {
-      padding-left: 1.2rem;
-    }
-    
-    .job {
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .job:last-child {
-      border-bottom: none;
-    }
-    
-    .job h3 {
-      margin: 0.2rem 0;
-      color: var(--dark);
-    }
-    
-    .job span {
-      font-weight: 300;
-      color: var(--text-light);
-      font-style: italic;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -182,28 +155,6 @@
       margin-bottom: 0.5rem;
     }
     
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    
-    .skill-category {
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      flex: 1;
-      min-width: 200px;
-    }
-    
-    .skill-category h3 {
-      margin-top: 0;
-      color: var(--primary);
-      margin-bottom: 0.8rem;
-    }
-    
     .resume-btn {
       display: inline-block;
       background: var(--primary);
@@ -219,98 +170,6 @@
     .resume-btn:hover {
       background: var(--dark);
       transform: translateY(-2px);
-    }
-    
-    .contact-form {
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-    
-    .form-group input, 
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-    
-    .form-group textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-    
-    .submit-btn {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-    
-    .submit-btn:hover {
-      background: var(--dark);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-    }
-
-    footer a {
-      color: var(--secondary);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-    
-    .education-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    
-    .education-card h3 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-    
-    .education-card p {
-      margin: 0.5rem 0;
-    }
-    
-    .education-card .degree {
-      font-weight: 500;
-    }
-    
-    .education-card .year {
-      color: var(--text-light);
-      font-style: italic;
     }
     
     /* Modal styles */
@@ -356,6 +215,23 @@
       color: var(--dark);
     }
 
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -364,10 +240,6 @@
       
       .projects {
         grid-template-columns: 1fr;
-      }
-      
-      .skills {
-        flex-direction: column;
       }
       
       .modal-content {
@@ -392,11 +264,7 @@
   <nav>
     <ul>
       <li><a href="#about">About Me</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#research">Research</a></li>
       <li><a href="#resume">Resume</a></li>
     </ul>
   </nav>
@@ -407,68 +275,6 @@
       <p>I am a Machine Learning Scientist at Apple with experience across PayPal, Halliburton, and more. I specialize in building end-to-end AI solutions across domains such as inventory optimization, fraud detection, and computer vision.</p>
       <p>With a passion for applying ML and AI to solve real-world problems at scale, I've worked on projects ranging from credit modeling to fraud detection using cutting-edge techniques like Graph Neural Networks, Large Language Models, and Computer Vision.</p>
       <p>I'm an active contributor to open-source projects and continuously explore new areas in the ML landscape to expand my skills and knowledge.</p>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <div class="education-card">
-        <h3>International Institute of Information Technology Bangalore</h3>
-        <p class="degree">Post Graduate Diploma in Machine Learning and Artificial Intelligence</p>
-        <p class="year">2020 - 2021</p>
-      </div>
-      <div class="education-card">
-        <h3>Birla Institute of Technology And Science - Pilani Hyderabad Campus</h3>
-        <p class="degree">Bachelors in Electrical & Electronics Engineering</p>
-        <p>CGPA: 7.0</p>
-        <p class="year">2014 - 2018</p>
-      </div>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="job">
-        <h3>Machine Learning Scientist</h3>
-        <span>Apple • Apr 2024 – Present</span>
-        <ul>
-          <li>Optimized inventory cycle counts and captured 99% shrinkage globally through advanced forecasting models.</li>
-          <li>Improved demand forecasting metrics by 10% using temporal alignment and stitching techniques.</li>
-          <li>Won the Apple MLPT Hackathon by building a RAG-based QA assistant on Slack for internal knowledge management.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Machine Learning Engineer II</h3>
-        <span>PayPal • Jun 2023 – Apr 2024</span>
-        <ul>
-          <li>Developed fraud detection models saving $10M annually using Graph Neural Networks and Large Language Models.</li>
-          <li>Implemented real-time transaction monitoring systems with high accuracy and low false positive rates.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Data Scientist II</h3>
-        <span>Halliburton • Nov 2020 – Jun 2023</span>
-        <ul>
-          <li>Reduced downtime by 95% with automated OCR for scanned documents using deep learning.</li>
-          <li>Built sequence-to-sequence models for dull bit forecasting, increasing revenue by 15%.</li>
-          <li>Led a team of 3 data scientists to develop ESP failure prediction models, resulting in a US patent.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Data Scientist</h3>
-        <span>CASHe • May 2019 – Oct 2020</span>
-        <ul>
-          <li>Developed credit modeling algorithms that improved loan disbursal by 10% while maintaining a low 1.5% default rate.</li>
-          <li>Implemented alternative credit scoring methods using non-traditional data sources.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Sr. Tech Associate</h3>
-        <span>Bank of America • Jun 2018 – May 2019</span>
-        <ul>
-          <li>Classified consumer complaints from CFPB website and Twitter using ML/DL techniques, reducing response time by 80%.</li>
-          <li>Built a CRUD application using MERN stack for user authentication and authorization with fraud detection integration.</li>
-          <li>Trained document models for region of interest detection in bank documents using Kofax and internal AI platforms.</li>
-        </ul>
-      </div>
     </section>
 
     <section id="projects">
@@ -526,77 +332,10 @@
       </div>
     </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="skill-category">
-          <h3>Languages</h3>
-          <ul>
-            <li>Python</li>
-            <li>SQL</li>
-            <li>C++</li>
-            <li>C</li>
-          </ul>
-        </div>
-        
-        <div class="skill-category">
-          <h3>Frameworks</h3>
-          <ul>
-            <li>TensorFlow</li>
-            <li>PyTorch</li>
-            <li>Scikit-learn</li>
-            <li>XGBoost</li>
-            <li>LangChain</li>
-          </ul>
-        </div>
-        
-        <div class="skill-category">
-          <h3>Tools</h3>
-          <ul>
-            <li>MLflow</li>
-            <li>Flask</li>
-            <li>Docker</li>
-            <li>Streamlit</li>
-            <li>AWS</li>
-            <li>MySQL</li>
-          </ul>
-        </div>
-        
-        <div class="skill-category">
-          <h3>Domains</h3>
-          <ul>
-            <li>Machine Learning</li>
-            <li>Deep Learning</li>
-            <li>Natural Language Processing</li>
-            <li>Computer Vision</li>
-            <li>Statistics</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="research">
-      <h2>Research & Patents</h2>
-      <ul>
-        <li><strong>US Patent (US-20230104543-A1):</strong> Machine Learning Based Electric Submersible Pump Failure Prediction Based On Data Capture At Multiple Window Lengths To Detect Slow And Fast Changing Behavior. Filed Oct 1, 2021 in association with Halliburton.</li>
-        <li><strong>US Patent (US-20230107580-A1):</strong> Machine Learning Based Electric Submersible Pump Failure Prediction Using Encoded Time Derivative And Gradient Features. Filed Oct 1, 2021 in association with Halliburton.</li>
-        <li><strong>Apple MLPT'24 Infra Hackathon:</strong> Winner among 150+ teams worldwide</li>
-        <li><strong>Apple Data Science Summit 2024:</strong> Poster Presenter - "Identifying Sales Twins in Apple's Ecosystem"</li>
-      </ul>
-      
-      <h3 style="margin-top: 2rem; color: var(--dark);">Certifications</h3>
-      <ul>
-        <li>Databricks Certified Associate ML Practitioner for Apache Spark 2.4</li>
-        <li>AWS Certified Machine Learning - Specialty</li>
-        <li>Deep Learning Specialization from DeepLearning.AI</li>
-      </ul>
-    </section>
-
     <section id="resume">
       <h2>Resume</h2>
-      <p>You can download my detailed resume below or view it online:</p>
+      <p>You can view my detailed resume below:</p>
       <a href="#" class="resume-btn" id="viewResumeBtn">View Resume</a>
-      <a href="assets/RichaCV_Apple.pdf" download="Richa_Choudhary_Resume.pdf" class="resume-btn" style="margin-left: 10px;">Download PDF</a>
     </section>
   </div>
 
