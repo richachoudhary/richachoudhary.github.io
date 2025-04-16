@@ -4,23 +4,381 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Richa Choudhary | ML Scientist Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; line-height: 1.6; background: #f9f9f9; color: #333; }
-    header { background: #1c1c1c; color: white; padding: 2rem 1rem; text-align: center; }
-    header h1 { margin-bottom: 0.5rem; }
-    header a { color: #00aced; margin: 0 0.5rem; text-decoration: none; }
-    .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-    section { margin-bottom: 3rem; }
-    h2 { color: #444; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
-    ul { padding-left: 1.2rem; }
-    .job { margin-bottom: 1.5rem; }
-    .job h3 { margin: 0.2rem 0; }
-    .job span { font-weight: 300; color: #666; }
+    :root {
+      --primary: #0055a4;
+      --secondary: #00aced;
+      --dark: #1c1c1c;
+      --light: #f9f9f9;
+      --text: #333;
+      --text-light: #666;
+      --border: #ddd;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background: var(--light);
+      color: var(--text);
+    }
+    
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    header h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    header p {
+      margin-bottom: 1rem;
+    }
+    
+    header a {
+      color: var(--secondary);
+      margin: 0 0.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    header a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    
+    nav {
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav li {
+      padding: 0;
+    }
+    
+    nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    nav a:hover, nav a.active {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    section {
+      margin-bottom: 4rem;
+      padding-top: 1rem;
+    }
+    
+    h2 {
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    
+    ul {
+      padding-left: 1.2rem;
+    }
+    
+    .job {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .job:last-child {
+      border-bottom: none;
+    }
+    
+    .job h3 {
+      margin: 0.2rem 0;
+      color: var(--dark);
+    }
+    
+    .job span {
+      font-weight: 300;
+      color: var(--text-light);
+      font-style: italic;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-content h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    
+    .tag {
+      background: #e0f0ff;
+      color: var(--primary);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .skill-category {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .skill-category h3 {
+      margin-top: 0;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+    
+    .resume-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .resume-btn:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+    }
+    
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-group input, 
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .education-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    
+    .education-card h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    
+    .education-card p {
+      margin: 0.5rem 0;
+    }
+    
+    .education-card .degree {
+      font-weight: 500;
+    }
+    
+    .education-card .year {
+      color: var(--text-light);
+      font-style: italic;
+    }
+    
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+    
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 600px;
+      position: relative;
+      animation: modalopen 0.5s;
+    }
+    
+    @keyframes modalopen {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    
+    .close-btn {
+      color: var(--text-light);
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .close-btn:hover {
+      color: var(--dark);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .projects {
+        grid-template-columns: 1fr;
+      }
+      
+      .skills {
+        flex-direction: column;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 20% auto;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
+  <header id="home">
     <h1>Richa Choudhary</h1>
     <p>Machine Learning Scientist | Deep Learning | NLP | Computer Vision</p>
     <p>
@@ -31,79 +389,282 @@
     </p>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#resume">Resume</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
-    <section>
+    <section id="about">
       <h2>About Me</h2>
-      <p>I am a Machine Learning Scientist at Apple with experience across PayPal, Halliburton, and more. I specialize in building end-to-end AI solutions across domains such as inventory optimization, fraud detection, and computer vision. I'm passionate about applying ML and AI to solve real-world problems at scale.</p>
+      <p>I am a Machine Learning Scientist at Apple with experience across PayPal, Halliburton, and more. I specialize in building end-to-end AI solutions across domains such as inventory optimization, fraud detection, and computer vision.</p>
+      <p>With a passion for applying ML and AI to solve real-world problems at scale, I've worked on projects ranging from credit modeling to fraud detection using cutting-edge techniques like Graph Neural Networks, Large Language Models, and Computer Vision.</p>
+      <p>I'm an active contributor to open-source projects and continuously explore new areas in the ML landscape to expand my skills and knowledge.</p>
     </section>
 
-    <section>
-      <h2>Skills Summary</h2>
-      <ul>
-        <li><strong>Languages:</strong> Python, SQL, C++, C</li>
-        <li><strong>Frameworks:</strong> Scikit-learn, TensorFlow, PyTorch, XGBoost, LangChain</li>
-        <li><strong>Tools:</strong> MLflow, Flask, Docker, Streamlit, AWS, MySQL</li>
-        <li><strong>Domains:</strong> Machine Learning, Deep Learning, NLP, CV, Statistics</li>
-      </ul>
+    <section id="education">
+      <h2>Education</h2>
+      <div class="education-card">
+        <h3>International Institute of Information Technology Bangalore</h3>
+        <p class="degree">Post Graduate Diploma in Machine Learning and Artificial Intelligence</p>
+        <p class="year">2020 - 2021</p>
+      </div>
+      <div class="education-card">
+        <h3>Birla Institute of Technology And Science - Pilani Hyderabad Campus</h3>
+        <p class="degree">Bachelors in Electrical & Electronics Engineering</p>
+        <p>CGPA: 7.0</p>
+        <p class="year">2014 - 2018</p>
+      </div>
     </section>
 
-    <section>
+    <section id="experience">
       <h2>Experience</h2>
       <div class="job">
-        <h3>Apple – Machine Learning Scientist <span>Apr 2024 – Present</span></h3>
+        <h3>Machine Learning Scientist</h3>
+        <span>Apple • Apr 2024 – Present</span>
         <ul>
-          <li>Optimized inventory cycle counts and captured 99% shrinkage globally.</li>
-          <li>Improved demand forecasting metrics by 10% using temporal alignment and stitching.</li>
-          <li>Winner, Apple MLPT Hackathon: Built a RAG-based QA assistant on Slack.</li>
+          <li>Optimized inventory cycle counts and captured 99% shrinkage globally through advanced forecasting models.</li>
+          <li>Improved demand forecasting metrics by 10% using temporal alignment and stitching techniques.</li>
+          <li>Won the Apple MLPT Hackathon by building a RAG-based QA assistant on Slack for internal knowledge management.</li>
         </ul>
       </div>
       <div class="job">
-        <h3>PayPal – Machine Learning Engineer II <span>Jun 2023 – Apr 2024</span></h3>
+        <h3>Machine Learning Engineer II</h3>
+        <span>PayPal • Jun 2023 – Apr 2024</span>
         <ul>
-          <li>Developed fraud detection models saving $10M annually using GNNs & LLMs.</li>
+          <li>Developed fraud detection models saving $10M annually using Graph Neural Networks and Large Language Models.</li>
+          <li>Implemented real-time transaction monitoring systems with high accuracy and low false positive rates.</li>
         </ul>
       </div>
       <div class="job">
-        <h3>Halliburton – Data Scientist II <span>Nov 2020 – Jun 2023</span></h3>
+        <h3>Data Scientist II</h3>
+        <span>Halliburton • Nov 2020 – Jun 2023</span>
         <ul>
-          <li>Reduced downtime by 95% with automated OCR for scanned documents.</li>
-          <li>Built seq2seq models for dull bit forecasting, increasing revenue by 15%.</li>
+          <li>Reduced downtime by 95% with automated OCR for scanned documents using deep learning.</li>
+          <li>Built sequence-to-sequence models for dull bit forecasting, increasing revenue by 15%.</li>
+          <li>Led a team of 3 data scientists to develop ESP failure prediction models, resulting in a US patent.</li>
         </ul>
       </div>
       <div class="job">
-        <h3>CASHe – Data Scientist <span>May 2019 – Oct 2020</span></h3>
+        <h3>Data Scientist</h3>
+        <span>CASHe • May 2019 – Oct 2020</span>
         <ul>
-          <li>Credit modeling that improved loan disbursal by 10% under 1.5% default rate.</li>
+          <li>Developed credit modeling algorithms that improved loan disbursal by 10% while maintaining a low 1.5% default rate.</li>
+          <li>Implemented alternative credit scoring methods using non-traditional data sources.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Sr. Tech Associate</h3>
+        <span>Bank of America • Jun 2018 – May 2019</span>
+        <ul>
+          <li>Classified consumer complaints from CFPB website and Twitter using ML/DL techniques, reducing response time by 80%.</li>
+          <li>Built a CRUD application using MERN stack for user authentication and authorization with fraud detection integration.</li>
+          <li>Trained document models for region of interest detection in bank documents using Kofax and internal AI platforms.</li>
         </ul>
       </div>
     </section>
 
-    <section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <div class="project-content">
+            <h3>RAG-based QA Assistant</h3>
+            <p>Built a retrieval-augmented generation system on Slack that answers employee questions using internal documentation.</p>
+            <div class="tags">
+              <span class="tag">LangChain</span>
+              <span class="tag">LLMs</span>
+              <span class="tag">Vector DB</span>
+              <span class="tag">Slack API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>TextGCN</h3>
+            <p>Implemented a Text Graph Convolutional Network using PyTorch and DGL for attention-based document classification.</p>
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">GCN</span>
+              <span class="tag">NLP</span>
+              <span class="tag">DGL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>MMOCR Contributions</h3>
+            <p>Contributed to OpenMMLab's MMOCR project for text detection, recognition, and understanding.</p>
+            <div class="tags">
+              <span class="tag">Computer Vision</span>
+              <span class="tag">OCR</span>
+              <span class="tag">Open Source</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Pathfinding Robot</h3>
+            <p>Built a path-finding robot using OpenCV and image processing techniques for Robocon'16.</p>
+            <div class="tags">
+              <span class="tag">OpenCV</span>
+              <span class="tag">Robotics</span>
+              <span class="tag">C++</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <ul>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>C++</li>
+            <li>C</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>TensorFlow</li>
+            <li>PyTorch</li>
+            <li>Scikit-learn</li>
+            <li>XGBoost</li>
+            <li>LangChain</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Tools</h3>
+          <ul>
+            <li>MLflow</li>
+            <li>Flask</li>
+            <li>Docker</li>
+            <li>Streamlit</li>
+            <li>AWS</li>
+            <li>MySQL</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Domains</h3>
+          <ul>
+            <li>Machine Learning</li>
+            <li>Deep Learning</li>
+            <li>Natural Language Processing</li>
+            <li>Computer Vision</li>
+            <li>Statistics</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
       <h2>Research & Patents</h2>
       <ul>
-        <li>US Patent: ML-based ESP failure prediction using time-windowed features (Halliburton)</li>
-        <li>Winner, Apple MLPT'24 Hackathon</li>
-        <li>Poster Presenter, Apple Data Science Summit 2024: "Sales Twins in Apple’s Ecosystem"</li>
+        <li><strong>US Patent (US-20230104543-A1):</strong> Machine Learning Based Electric Submersible Pump Failure Prediction Based On Data Capture At Multiple Window Lengths To Detect Slow And Fast Changing Behavior. Filed Oct 1, 2021 in association with Halliburton.</li>
+        <li><strong>US Patent (US-20230107580-A1):</strong> Machine Learning Based Electric Submersible Pump Failure Prediction Using Encoded Time Derivative And Gradient Features. Filed Oct 1, 2021 in association with Halliburton.</li>
+        <li><strong>Apple MLPT'24 Infra Hackathon:</strong> Winner among 150+ teams worldwide</li>
+        <li><strong>Apple Data Science Summit 2024:</strong> Poster Presenter - "Identifying Sales Twins in Apple's Ecosystem"</li>
+      </ul>
+      
+      <h3 style="margin-top: 2rem; color: var(--dark);">Certifications</h3>
+      <ul>
+        <li>Databricks Certified Associate ML Practitioner for Apache Spark 2.4</li>
+        <li>AWS Certified Machine Learning - Specialty</li>
+        <li>Deep Learning Specialization from DeepLearning.AI</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Open Source & Projects</h2>
-      <ul>
-        <li>Contributor to mmocr (OpenMMLab project)</li>
-        <li>Built TextGCN using PyTorch and DGL for attention-based classification</li>
-        <li>Pathfinding robot using OpenCV for Robocon'16</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <ul>
-        <li>AWS Certified ML - Specialty</li>
-        <li>Databricks Certified Associate ML Practitioner</li>
-        <li>DeepLearning.AI Specialization</li>
-      </ul>
+    <section id="resume">
+      <h2>Resume</h2>
+      <p>You can download my detailed resume below or view it online:</p>
+      <a href="#" class="resume-btn" id="viewResumeBtn">View Resume</a>
+      <a href="assets/RichaCV_Apple.pdf" download="Richa_Choudhary_Resume.pdf" class="resume-btn" style="margin-left: 10px;">Download PDF</a>
     </section>
   </div>
+
+  <!-- Resume Modal -->
+  <div id="resumeModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Richa Choudhary - Resume</h2>
+      <iframe id="resumeFrame" src="about:blank" style="width:100%; height:600px; border:none;"></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Richa Choudhary. All rights reserved.</p>
+    <p>
+      <a href="mailto:richa.choudhary07.09@gmail.com">Email</a> |
+      <a href="https://github.com/richachoudhary" target="_blank">GitHub</a> |
+      <a href="https://www.linkedin.com/in/richa-choudhary0709" target="_blank">LinkedIn</a> |
+      <a href="https://www.kaggle.com/richachoudhary8096" target="_blank">Kaggle</a>
+    </p>
+  </footer>
+
+  <script>
+    // Navigation highlighting
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+    
+    window.addEventListener("scroll", () => {
+      let current = "";
+      
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").substring(1) === current) {
+          link.classList.add("active");
+        }
+      });
+    });
+    
+    // Modal functionality
+    const modal = document.getElementById("resumeModal");
+    const viewBtn = document.getElementById("viewResumeBtn");
+    const closeBtn = document.getElementsByClassName("close-btn")[0];
+    const resumeFrame = document.getElementById("resumeFrame");
+    
+    viewBtn.onclick = function() {
+      modal.style.display = "block";
+      resumeFrame.src = "assets/RichaCV_Apple.pdf";
+    }
+    
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+      resumeFrame.src = "about:blank";
+    }
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        resumeFrame.src = "about:blank";
+      }
+    }
+  </script>
 </body>
 </html>
